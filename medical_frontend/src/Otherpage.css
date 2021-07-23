@@ -1,0 +1,30 @@
+.input_part{
+       text-align: center;
+       margin-top: 100px;
+}
+
+.input_part > form > input {
+    flex: 1;
+    outline-width: 0;
+    font-size: 1.4rem;
+    border-radius: 30px;
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+}
+
+.input_part > form > button {
+       font-size: 62.5%;
+       border: none;
+       padding: 0.8rem 1.8rem;
+       font-size: 1.4rem;
+       border-radius: 2rem;
+       text-transform: uppercase;
+       box-shadow: 0 8px 6px -6px black;
+       outline: none;
+}
+.input_part > form > button:hover{
+       box-shadow: 0 8px 6px -6px var(--main-color);
+       color: #009ad8;
+       background-color:white;
+}

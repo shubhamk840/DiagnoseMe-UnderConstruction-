@@ -1,0 +1,15 @@
+.apnaform{
+    margin-top: 50px;
+    align-items: center;
+    text-align: center;
+}
+
+.data{
+    background-color: chocolate;
+    border: 3px dashed black;
+    margin-top: 30px;
+}
+
+span{
+   color: blue;
+}

@@ -1,0 +1,9 @@
+
+
+.MainHeading{
+    box-sizing: border-box;
+    margin-top:0px;
+    flex: none;
+    background-color: rgb(33, 240, 171);
+    text-align: center;
+}

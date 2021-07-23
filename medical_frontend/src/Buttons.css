@@ -1,0 +1,19 @@
+.Button_style{
+    margin-left: 40%;
+    background-color: #4CAF50; /* Green */
+    margin-top: 60px;
+    width:200px;
+    border: none;
+    color: white;
+    display: flex;
+  align-items: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    font-size: 16px;
+    
+}
