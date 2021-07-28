@@ -8,6 +8,8 @@ import Homepage from './Homepage'
 import Searchbyname from './Searchbyname';
 import Datalist from './Datalist'
 import Form from './Form'
+import Signup from './Signup';
+import Login from './Login';
 
 
 function App() {
@@ -16,7 +18,9 @@ function App() {
     <BrowserRouter>
     <div>
         <Switch>
-          <Route path="/" component={Homepage} exact/>
+          <Route path = "/" component= {Signup} exact/> 
+          <Route path = "/login" component = {Login} exact/>
+          <Route path="/homepage" component={Homepage} exact/>
          <Route path="/new" component={Otherpage} exact/>
          <Route path="/searchbyname" component={Searchbyname} exact/>
          <Route path = "/form" component={Form} exact/>

@@ -1,0 +1,33 @@
+.table{
+    margin-top: 50px;
+    /* overflow: scroll; */
+    overflow:auto;
+    height: 400px;
+    color:red;
+    background-color: #fff;
+    border: 4px solid black;
+}
+.table tr{
+    display: flex;
+    justify-content: space-between;
+}
+.table td{
+    padding: 0.5rem;
+     
+}
+.table tr:nth-of-type(odd)
+{
+    background-color: #f3f2;
+}
+
+.table_heading{
+
+    position: sticky;
+    top: 0;
+    /* z-index: 10;  */
+    background: #fff;
+    background-color:black !important;
+    font-weight: 80;
+     color:green;
+    overflow:fixed  !important;
+}

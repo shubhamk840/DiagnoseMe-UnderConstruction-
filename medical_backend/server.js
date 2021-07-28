@@ -1,6 +1,7 @@
 import express from 'express';
 import Mongoose from  'mongoose';
 import Datavalues from './dbdata.js'
+import LoginData from './logindata.js'
 import cors from 'cors'
 
 const app = express();
@@ -12,6 +13,7 @@ app.use(cors());
 app.get('/',(req,res)=>{
     res.send(" i am working");
 })
+
 
 
 
@@ -27,6 +29,17 @@ Mongoose.connect( connection_url ,{
 }).catch((e)=>{
     console.log("No connection");
 });
+
+
+app.post('/login',(req,res)=>{
+    const currentvalue = req.body;
+    LoginData.create(currentvalue,(err,data)=>{
+        if(err)
+        res.status(500).send(err);
+    else
+        res.status(201).send(data);
+    })
+})
 
 app.post('/new',(req,res)=>{
     const currentvalue = req.body;
@@ -50,14 +63,14 @@ app.post('/search_by_id',(req,res)=>{
            res.status(200).send(data);
        });
 });
-
+const sort = {name:1};
 app.get('/viewlist',(req,res)=>{
       Datavalues.find((err,data)=>{
           if(err) res.status(500).send(err);
           else{
               res.status(200).send(data);
           }
-      })
+      }).sort(sort)
 })
 
 

@@ -4,7 +4,7 @@ import {useState,useEffect} from 'react'
 import MainHeading from './MainHeading';
 import './Otherpage.css'
 import axios from './axios.js'
-// this is page where we will prove search bars and data entry
+// this is page where we will provide search bars and data entry
 function Otherpage() {
 
     const [id,setId] = useState();

@@ -4,6 +4,7 @@ import axios from './axios.js'
 import {useState,useEffect} from 'react'
 import MainHeading from './MainHeading.js';
 import './Datalist.css'
+import './Table.css'
 
 function Datalist() {
 
@@ -24,16 +25,28 @@ function Datalist() {
 
             <MainHeading/>
             
-            <div className ="datalist">
-            {data.map((item)=>{
-                return (
-                <li> id--- {item.id} disease---- {item.name} </li>
-                )
-            })}
-
-            </div>
+            <div className="table"> 
+            <tr className="table_heading">
+            
+            <th>Chemical Name</th>
+            <th>Id's</th>
+            <th>Minvalue</th>
+            <th>Maxvalue</th>
+            </tr>
+           {data.map(({id,name,minvalue,maxvalue}) =>(
+               <tr>
+                   <td align="left"><strong>{name}</strong></td>
+                   <td align="left">{id}</td>
+                   <td align="left">{minvalue}</td>
+                   <td align="left">{maxvalue}</td>
+               </tr>
+               
+           ))}
+       </div>
         </div>
     )
 }
 
 export default Datalist
+
+
