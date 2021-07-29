@@ -26,22 +26,27 @@ function Datalist() {
             <MainHeading/>
             
             <div className="table"> 
-            <tr className="table_heading">
-            
-            <th  class="row-1 row-ID">Chemical Name</th>
+            <table class="users">
+            <thead>
+            <tr>
+            <th  class="row-1 row-ID">ChemicalName </th>
             <th class="row-2 row-name">Id's</th>
             <th class="row-3 row-job">Minvalue</th>
             <th class="row-4 row-email">Maxvalue</th>
             </tr>
+            </thead>
+            <tbody>
            {data.map(({id,name,minvalue,maxvalue}) =>(
                <tr>
-                   <td align="left"><strong>{name}</strong></td>
-                   <td align="left">{id}</td>
-                   <td align="left">{minvalue}</td>
-                   <td align="left">{maxvalue}</td>
+                   <td ><strong>{name}</strong></td>
+                   <td >{id}</td>
+                   <td >{minvalue}</td>
+                   <td >{maxvalue}</td>
                </tr>
                
            ))}
+           </tbody>
+           </table>
        </div>
         </div>
     )
