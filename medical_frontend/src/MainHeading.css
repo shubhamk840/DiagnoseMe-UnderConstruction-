@@ -1,9 +1,10 @@
-
-
-.MainHeading{
-    box-sizing: border-box;
-    margin-top:0px;
-    flex: none;
-    background-color: rgb(33, 240, 171);
-    text-align: center;
+.org_name{
+    font-size: 30px;
+    font-weight: 500;
+    color: #4144fa !important;
+    text-decoration: brown ;
+    text-shadow: 2px 1px #ff0000;
+    margin-right: 25px;
+    padding-top: 50% !important;
+    padding-bottom: 50% !important;
 }
