@@ -28,10 +28,10 @@ function Datalist() {
             <div className="table"> 
             <tr className="table_heading">
             
-            <th>Chemical Name</th>
-            <th>Id's</th>
-            <th>Minvalue</th>
-            <th>Maxvalue</th>
+            <th  class="row-1 row-ID">Chemical Name</th>
+            <th class="row-2 row-name">Id's</th>
+            <th class="row-3 row-job">Minvalue</th>
+            <th class="row-4 row-email">Maxvalue</th>
             </tr>
            {data.map(({id,name,minvalue,maxvalue}) =>(
                <tr>
