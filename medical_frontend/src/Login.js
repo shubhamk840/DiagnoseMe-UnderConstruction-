@@ -1,10 +1,17 @@
 import React from 'react'
 import './Login.css'
 import {useState,useEffect} from 'react'
+import {useHistory} from 'react-router-dom'
 import MainHeading from './MainHeading'
 import axios from './axios.js'
 
 function Login() {
+
+    const history = useHistory();
+    
+
+    
+
      const [flag,setFlag] = useState(0);
      const [id,setId] = useState();
      const [pass,setPass] = useState();
@@ -29,12 +36,8 @@ function Login() {
 
      function Print(){
          if(flag && pass==passfromserver){
-             return (
-                 <div>
-                     <h1> You have succesfully logged in </h1>
-                 </div>
-             )
-             
+            history.push('/homepage');
+             return null;
          }
          else if(flag && pass!=passfromserver ){
              return (
