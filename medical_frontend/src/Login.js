@@ -1,37 +1,52 @@
 import React from 'react'
 import './Login.css'
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import MainHeading from './MainHeading'
 import axios from './axios.js'
 
 function Login() {
-   
+     const [flag,setFlag] = useState(0);
      const [id,setId] = useState();
      const [pass,setPass] = useState();
      const [passfromserver,setPassfromserver] = useState();
     
-    function timeout(ms) { //pass a time in milliseconds to this function
-        return new Promise(resolve => setTimeout(resolve, ms));
-      }
 
      const login = async (event)=>{
+
          event.preventDefault();
           await axios.post('/login',{
               id:id
           }).then((res)=>{
               setPassfromserver(res.data[0].pass);
+              setFlag(1);
           }).catch((err)=>{
               console.log(err);
           })
+          
 
-          if(passfromserver){
-              if(pass==passfromserver) alert("done");
-              else alert("not done");
-          }
          
      }
 
-
+     function Print(){
+         if(flag && pass==passfromserver){
+             return (
+                 <div>
+                     <h1> You have succesfully logged in </h1>
+                 </div>
+             )
+             
+         }
+         else if(flag && pass!=passfromserver ){
+             return (
+                 <div>
+                 <h1> You have entered wrong password</h1>
+                 </div>
+             )
+         }
+         else{
+             return null;
+         }
+     }
     return (
 
         <div>
@@ -47,6 +62,7 @@ function Login() {
                  
             </div>
             <div className="heading2"> <h3>Don't  have an account <span><a href="/"  >signup</a></span></h3></div> 
+             <Print/>
         </div>
     )
 }

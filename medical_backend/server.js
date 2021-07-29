@@ -31,7 +31,7 @@ Mongoose.connect( connection_url ,{
 });
 
 
-app.post('/login',(req,res)=>{
+app.post('/signup',(req,res)=>{
     const currentvalue = req.body;
     LoginData.create(currentvalue,(err,data)=>{
         if(err)
@@ -41,6 +41,15 @@ app.post('/login',(req,res)=>{
     })
 })
 
+app.post('/login',(req,res)=>{
+    console.log("id pass is getting fetched");
+      const currentid = req.body.id;
+      console.log(req.body.id);
+      LoginData.find({"id":req.body.id},(err,data)=>{
+          if(err) res.status(500).send(errr);
+          else res.status(200).send(data);
+      });
+})
 app.post('/new',(req,res)=>{
     const currentvalue = req.body;
 
