@@ -12,7 +12,7 @@ function Signup() {
 
      const signup = (event)=>{
           if(pass==passtwo){
-                     axios.post('/login',{
+                     axios.post('/signup',{
                          id:id,
                          pass:pass,
                      }).then((res)=>{
@@ -37,9 +37,9 @@ function Signup() {
             <div className="signup_main">
                
                  <form className = "signup_form ">
-                <div className="signup_div"><label >Enter Id</label> <input value={id} onChange = {event => setId(event.target.value)} placeholder ="abc@gmail.com" type="text"/></div>
-                <div className="signup_div"><label >Enter Password</label><input value={pass} onChange = {event => setPass(event.target.value)} placeholder = "password" type ="password"/></div>
-                <div className="signup_div"><label >Confirm Password </label><input value={passtwo} onChange = {event => setPasstwo(event.target.value)} placeholder = "confirm password" type ="password"/></div>
+                <div className="signup_div"><label >Enter Id</label> <input value={id} onChange = {event => setId(event.target.value)} placeholder ="abc@gmail.com" type="text" required/></div>
+                <div className="signup_div"><label >Enter Password</label><input value={pass} onChange = {event => setPass(event.target.value)} placeholder = "password" type ="password" required/></div>
+                <div className="signup_div"><label >Confirm Password </label><input value={passtwo} onChange = {event => setPasstwo(event.target.value)} placeholder = "confirm password" type ="password" required/></div>
                  <button onClick={signup} type="submit">Submit</button>
                  </form>
                  

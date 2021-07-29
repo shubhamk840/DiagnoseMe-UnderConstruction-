@@ -8,24 +8,27 @@ function Login() {
    
      const [id,setId] = useState();
      const [pass,setPass] = useState();
-     const [passtwo,setPasstwo] = useState();
+     const [passfromserver,setPassfromserver] = useState();
+    
+    function timeout(ms) { //pass a time in milliseconds to this function
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
 
-     const signup = (event)=>{
-          if(pass==passtwo){
-                     axios.post('/login',{
-                         id:id,
-                         pass:pass,
-                     }).then((res)=>{
-                         console.log(res);
-                     }).catch(e=>console.log(e));
-                     alert("Your have successfully signed up  ");
-                     
+     const login = async (event)=>{
+         event.preventDefault();
+          await axios.post('/login',{
+              id:id
+          }).then((res)=>{
+              setPassfromserver(res.data[0].pass);
+          }).catch((err)=>{
+              console.log(err);
+          })
+
+          if(passfromserver){
+              if(pass==passfromserver) alert("done");
+              else alert("not done");
           }
-          else{
-              alert("Password Do Not Match")
-              setPass('');
-              setPasstwo('')
-          }
+         
      }
 
 
@@ -37,9 +40,9 @@ function Login() {
             <div className="signup_main">
                
                  <form className = "signup_form ">
-                <div className="signup_div"><label >Enter Id</label> <input value={id} onChange = {event => setId(event.target.value)} placeholder ="abc@gmail.com" type="text"/></div>
-                <div className="signup_div"><label >Enter Password</label><input value={pass} onChange = {event => setPass(event.target.value)} placeholder = "password" type ="password"/></div>
-                <button onClick={signup} type="submit">LogIn</button>
+                <div className="signup_div"><label >Enter Id</label> <input value={id} onChange = {event => setId(event.target.value)} placeholder ="abc@gmail.com" type="text" required/></div>
+                <div className="signup_div"><label >Enter Password</label><input value={pass} onChange = {event => setPass(event.target.value)} placeholder = "password" type ="password" required/></div>
+                <button onClick={login} type="submit">LogIn</button>
                  </form>
                  
             </div>
